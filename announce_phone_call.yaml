@@ -58,9 +58,6 @@ variables:
   entity: !input person
 condition:
   - "{{is_state(entity, zone_name)}}"
-  - condition: state
-    entity_id: !input media_player
-    state: playing
   - condition: numeric_state
     entity_id: !input phone_ringer_volume
     below: 5

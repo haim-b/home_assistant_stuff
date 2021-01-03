@@ -38,12 +38,6 @@ blueprint:
       selector:
           entity:
             domain: zone
-    tts_service: 
-      name: TTS Service
-      description: The text-to-speech service to announce with.
-      selector:
-        entity:
-          domain: media_player
     media_player: 
       name: Media Player
       description: The media player to announce with.

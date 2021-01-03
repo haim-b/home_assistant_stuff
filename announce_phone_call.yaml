@@ -63,6 +63,6 @@ condition:
     below: 5
 action:
   - service: tts.microsoft_say
-    entity_id: !input media_player
     data:
+      entity_id: !input media_player
       message: !input message

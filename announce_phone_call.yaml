@@ -31,7 +31,7 @@ blueprint:
       selector:
         entity:
           integration: mobile_app
-          domain: binary_sensor
+          domain: sensor
     person:
       name: Person
       description: The person that needs to be in the required zone.

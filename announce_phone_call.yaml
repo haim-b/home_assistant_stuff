@@ -24,6 +24,13 @@ blueprint:
       selector:
         entity:
           integration: mobile_app
+          domain: sensor          
+    phone_interactive:
+      name: Phone interactive sensor
+      description: Select the phone interactive sensor.
+      selector:
+        entity:
+          integration: mobile_app
           domain: sensor
     person:
       name: Person
@@ -47,11 +54,16 @@ blueprint:
     message: 
       name: Message
       description: The message to announce.
+    delay_time:
+      name: Delay
+      description: How much time to give you a chance to answer before announcing.
+      default: for: "00:00:07"
 
 trigger:
   - platform: state
     entity_id: !input phone_state
     to: "ringing"
+    for: !delay_time
 variables: 
   zone: !input zone
   zone_name: "{{ zone[5:] }}"
@@ -61,6 +73,9 @@ condition:
   - condition: numeric_state
     entity_id: !input phone_ringer_volume
     below: 5
+  - condition: state
+    entity_id: !phone_interactive
+    state: off
 action:
   - service: tts.microsoft_say
     data:

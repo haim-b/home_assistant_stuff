@@ -57,7 +57,7 @@ blueprint:
     delay_time:
       name: Delay
       description: How much time to give you a chance to answer before announcing.
-      default: for: "00:00:07"
+      default: "00:00:07"
 
 trigger:
   - platform: state

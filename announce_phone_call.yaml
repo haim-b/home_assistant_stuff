@@ -31,7 +31,7 @@ blueprint:
       selector:
         entity:
           integration: mobile_app
-          domain: sensor
+          domain: binary_sensor
     person:
       name: Person
       description: The person that needs to be in the required zone.
@@ -54,16 +54,12 @@ blueprint:
     message: 
       name: Message
       description: The message to announce.
-    delay_time:
-      name: Delay
-      description: How much time to give you a chance to answer before announcing.
-      default: "00:00:07"
 
 trigger:
   - platform: state
     entity_id: !input phone_state
     to: "ringing"
-    for: !delay_time
+    for: "00:00:07"
 variables: 
   zone: !input zone
   zone_name: "{{ zone[5:] }}"

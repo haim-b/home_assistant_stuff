@@ -57,7 +57,7 @@ blueprint:
     delay_time:
       name: Delay time
       description: The time to let you act before announcing.
-      default: "00:00:07"
+      default: "00:00:05"
 
 trigger:
   - platform: state
@@ -75,7 +75,7 @@ condition:
     below: 5
   - condition: state
     entity_id: !input phone_interactive
-    state: off
+    state: 'off'
 action:
   - service: tts.microsoft_say
     data:
